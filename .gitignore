@@ -1,0 +1,68 @@
+# --- OS / Editor ---
+.DS_Store
+Thumbs.db
+desktop.ini
+*.orig
+*.rej
+*.bak
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+# --- Node / Next.js / Frontend ---
+node_modules/
+.npm/
+.pnpm-store/
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.next/
+out/
+.vercel/
+dist/
+build/
+.vite/
+.cache/
+.parcel-cache/
+coverage/
+.nyc_output/
+storybook-static/
+.cypress/
+playwright-report/
+test-results/
+*.log
+*.log.*
+
+# Lockfiles NICHT ignorieren! (wähle genau eins)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# --- Environment / Secrets ---
+.env
+.env.*
+!.env.example
+
+# --- .NET / Backend ---
+[Bb]in/
+[Oo]bj/
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.psess
+*.vsp
+*.vspx
+*.coverage
+*.coveragexml
+TestResults/
+*.nupkg
+# Konfig lokal & geheim
+appsettings.*.Local.json
+local.settings.json
+secrets.json
