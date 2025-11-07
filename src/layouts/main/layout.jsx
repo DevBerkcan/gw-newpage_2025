@@ -31,7 +31,99 @@ import { HeaderSection } from '../core/header-section';
 import { PurchaseButton } from '../components/purchase-button';
 
 /* -------------------------------------------------
-   Telefon-Button (grün, 40x40, mingcute-Icon)
+   Language Switcher (DE/EN)
+----------------------------------------------------------- */
+function LanguageSwitcher({ sx }) {
+  const [currentLang, setCurrentLang] = useState('de');
+
+  const IconifyComp =
+    typeof Iconify === 'function'
+      ? Iconify
+      : typeof Iconify?.default === 'function'
+      ? Iconify.default
+      : null;
+
+  const toggleLanguage = () => {
+    setCurrentLang((prev) => (prev === 'de' ? 'en' : 'de'));
+  };
+
+  const currentLangLabel = currentLang.toUpperCase();
+
+  return (
+    <Tooltip title={currentLang === 'de' ? 'Switch to English' : 'Zu Deutsch wechseln'} arrow>
+      <IconButton
+        onClick={toggleLanguage}
+        disableRipple
+        size="small"
+        sx={{
+          width: 32,
+          height: 32,
+          p: 0,
+          bgcolor: 'transparent',
+          transition: 'transform .15s ease',
+          '&:hover': { bgcolor: 'transparent', transform: 'translateY(-1px)' },
+          ...sx,
+        }}
+      >
+        {IconifyComp ? (
+          currentLang === 'de' ? (
+            <IconifyComp icon="twemoji:flag-germany" width={22} height={22} />
+          ) : (
+            <IconifyComp icon="twemoji:flag-united-kingdom" width={22} height={22} />
+          )
+        ) : (
+          <Box sx={{ fontSize: '0.75rem', fontWeight: 600 }}>{currentLangLabel}</Box>
+        )}
+      </IconButton>
+    </Tooltip>
+  );
+}
+
+/* -------------------------------------------------
+   Social Media Button (LinkedIn)
+----------------------------------------------------------- */
+function SocialMediaButton({ sx }) {
+  const IconifyComp =
+    typeof Iconify === 'function'
+      ? Iconify
+      : typeof Iconify?.default === 'function'
+      ? Iconify.default
+      : null;
+
+  return (
+    <Tooltip title="LinkedIn" arrow>
+      <IconButton
+        component="a"
+        href="https://www.linkedin.com/company/gentle-webdesign"
+        target="_blank"
+        rel="noopener noreferrer"
+        disableRipple
+        size="small"
+        sx={{
+          width: 32,
+          height: 32,
+          p: 0,
+          bgcolor: 'transparent',
+          color: '#0A66C2',
+          transition: 'transform .15s ease',
+          '&:hover': { bgcolor: 'transparent', transform: 'translateY(-1px)' },
+          ...sx,
+        }}
+      >
+        {IconifyComp ? (
+          <IconifyComp icon="eva:linkedin-fill" width={22} height={22} />
+        ) : (
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77Z" />
+          </svg>
+        )}
+      </IconButton>
+    </Tooltip>
+  );
+}
+
+/* -------------------------------------------------
+   Telefon-Button (grün, 40x40, Iconify Icon)
 ----------------------------------------------------------- */
 function PhoneCallButton({
   phoneDisplay = '01754701832',
@@ -54,27 +146,26 @@ function PhoneCallButton({
         aria-label={`Anrufen ${phoneDisplay}`}
         rel="nofollow"
         disableRipple
-        size="medium"             // 40x40
+        size="medium"
         sx={{
           width: 40,
           height: 40,
           p: 0,
           bgcolor: 'transparent',
-          color: iconColor,       // fallback falls Icon currentColor nutzt
+          color: iconColor,
           transition: 'transform .15s ease',
           '&:hover': { bgcolor: 'transparent', transform: 'translateY(-1px)' },
           '& .iconify': {
-            color: iconColor,     // Iconify explizit grün
+            color: iconColor,
             filter: 'drop-shadow(0 1px 1px rgba(0,0,0,.18))',
           },
           ...sx,
         }}
       >
         {IconifyComp ? (
-          <IconifyComp icon="mingcute:phone-fill" width={20} height={20} />
+          <IconifyComp icon="solar:phone-calling-bold-duotone" width={24} height={24} />
         ) : (
-          // Fallback-SVG
-          <svg width="20" height="20" viewBox="0 0 24 24" role="img" aria-label="Telefon" fill={iconColor}>
+          <svg width="24" height="24" viewBox="0 0 24 24" role="img" aria-label="Telefon" fill={iconColor}>
             <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C11.85 21 3 12.15 3 1a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.58a1 1 0 0 1-.24 1.01l-2.2 2.2Z" />
           </svg>
         )}
@@ -207,16 +298,20 @@ export function MainLayout({ sx, cssVars, children, slotProps, layoutQuery = 'md
       ),
       rightArea: (
         <Box sx={{ gap: 1, display: 'flex', alignItems: 'center' }}>
-          {/* <Searchbar /> */}
+          {/* Language Switcher DE/EN */}
+          <LanguageSwitcher />
 
-          {/* Telefon links vom CTA */}
+          {/* LinkedIn Icon */}
+          <SocialMediaButton />
+
+          {/* Telefon Icon */}
           <PhoneCallButton phoneDisplay="01754701832" phoneHref="+491754701832" />
 
-          {/* Dein CTA/Shop-Button */}
-          <PurchaseButton data={langs} />
-
-          {/* Moon / Sun Toggle rechts */}
+          {/* Moon / Sun Toggle */}
           <ThemeModeToggle />
+
+          {/* Book Meeting Button ganz rechts */}
+          <PurchaseButton data={langs} />
         </Box>
       ),
     };

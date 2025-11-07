@@ -5,6 +5,7 @@ import Button from '@mui/material/Button';
 import { paths } from 'src/routes/paths';
 
 import { AnimateBorder } from 'src/components/animate';
+import { Iconify } from 'src/components/iconify';
 
 // ----------------------------------------------------------------------
 
@@ -40,9 +41,8 @@ export function PurchaseButton({ slotProps, sx }) {
     >
       <Button
         variant="text"
-        target="_blank"
-        rel="noopener"
-        href={paths.zoneStore}
+        href={paths.marketing.contact}
+        startIcon={<Iconify icon="solar:calendar-mark-bold-duotone" width={20} />}
         {...slotProps?.button}
         sx={[
           { px: 2, borderRadius: 'inherit' },
@@ -51,7 +51,7 @@ export function PurchaseButton({ slotProps, sx }) {
             : [slotProps?.button?.sx]),
         ]}
       >
-        Purchase
+        Book Meeting
       </Button>
     </AnimateBorder>
   );
