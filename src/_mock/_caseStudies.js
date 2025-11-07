@@ -6,38 +6,38 @@ import { _tags } from './assets';
 // ----------------------------------------------------------------------
 
 const TITLES = [
-  'Bank of America',
-  'Technology Nixon',
-  'Turn Key Smart',
-  'Digital Shose',
-  'Action Car',
-  'The Zone UI',
-  'Minimal UI',
-  'Network Firefox',
+  'E-Commerce Revolution',
+  'KI-Chatbot Integration',
+  'Corporate Website Relaunch',
+  'Web-App für SaaS Startup',
+  'SharePoint Intranet',
+  'Shopify Premium Store',
+  'React Dashboard',
+  'Marketing Landing Page',
 ];
 
 const CONTENT = `
-<h4>Project brief</h4>
-<p>Nullam tincidunt adipiscing enim. Mauris sollicitudin fermentum libero. Pellentesque auctor neque nec urna. Sed fringilla mauris sit amet nibh. Phasellus viverra nulla ut metus varius laoreet.</p>
+<h4>Die Herausforderung</h4>
+<p>Der Kunde benötigte eine moderne, skalierbare Lösung mit erstklassiger User Experience und höchsten Performance-Standards. Die bestehende Infrastruktur war veraltet und konnte den wachsenden Anforderungen nicht mehr gerecht werden.</p>
 
-<h4>How we work</h4>
-<p>Nullam tincidunt adipiscing enim. Mauris sollicitudin fermentum libero. Pellentesque auctor neque nec urna. Sed fringilla mauris sit amet nibh. Phasellus viverra nulla ut metus varius laoreet.</p>
+<h4>Unsere Lösung</h4>
+<p>Wir haben eine maßgeschneiderte Lösung mit modernsten Technologien entwickelt:</p>
 <ul>
-    <li>Medical Assistant</li>
-    <li>Web Designer</li>
-    <li>Dog Trainer</li>
-    <li>Nursing Assistant</li>
-    <li>President of Sales</li>
+    <li>Next.js 14 mit App Router für optimale Performance</li>
+    <li>React 18 mit Server Components</li>
+    <li>TypeScript für Type-Safety</li>
+    <li>Tailwind CSS für konsistentes Design</li>
+    <li>CI/CD Pipeline mit automatisierten Tests</li>
 </ul>
 
-<h4>Results</h4>
-<p>Nullam tincidunt adipiscing enim. Mauris sollicitudin fermentum libero. Pellentesque auctor neque nec urna. Sed fringilla mauris sit amet nibh. Phasellus viverra nulla ut metus varius laoreet.</p>
+<h4>Die Ergebnisse</h4>
+<p>Die neue Plattform übertraf alle Erwartungen und lieferte messbare Erfolge:</p>
 <ul>
-    <li>Medical Assistant</li>
-    <li>Web Designer</li>
-    <li>Dog Trainer</li>
-    <li>Nursing Assistant</li>
-    <li>President of Sales</li>
+    <li>+165% höhere Conversion Rate</li>
+    <li>95% Verbesserung der Ladegeschwindigkeit</li>
+    <li>100% Core Web Vitals Score</li>
+    <li>-40% Reduzierung der Bounce Rate</li>
+    <li>+230% mehr organischer Traffic</li>
 </ul>
 `;
 

@@ -13,6 +13,9 @@ import { useResponsive } from 'src/hooks/use-responsive';
 import { HEADER } from 'src/layouts/config-layout';
 import { bgBlur, bgGradient, textGradient } from 'src/theme/css';
 
+import { paths } from 'src/routes/paths';
+import { RouterLink } from 'src/routes/components';
+
 import { varFade, MotionContainer } from 'src/components/animate';
 import { PopButton, FrameButton } from 'src/components/anime-button';
 // ----------------------------------------------------------------------
@@ -173,10 +176,11 @@ export function HomeHero() {
           variant="h2"
           sx={{
             textAlign: 'center',
+            fontWeight: 700,
           }}
         >
-          Start a <br />
-          New Project with
+          Digital Solutions <br />
+          die begeistern
         </Typography>
       </m.div>
 
@@ -195,9 +199,10 @@ export function HomeHero() {
       </m.div>
 
       <m.div variants={varFade('in')}>
-        <Typography variant="body2" sx={{ textAlign: 'center' }}>
-          Creativity is the process of having original ideas, shaping them into reality, and
-          inspiring others along the way.
+        <Typography variant="body2" sx={{ textAlign: 'center', fontSize: '1.1rem', lineHeight: 1.8 }}>
+          Von der Idee bis zum Go-Live – Webdesign, Apps & KI-Automationen.
+          <br />
+          Messbar, sicher und skalierbar für Ihren Erfolg.
         </Typography>
       </m.div>
 
@@ -236,10 +241,20 @@ export function HomeHero() {
             >
               Live Preview
             </Button> */}
-            <FrameButton style={{ width: 159 }}>
-              <Typography variant="subtitle2">About Us</Typography>
+            <FrameButton
+              component={RouterLink}
+              href={paths.marketing.services}
+              style={{ width: 180 }}
+            >
+              <Typography variant="subtitle2">Unsere Leistungen</Typography>
             </FrameButton>
-            <PopButton style={{ width: 150 }}>Contact Us</PopButton>
+            <PopButton
+              component={RouterLink}
+              href={paths.marketing.contact}
+              style={{ width: 180 }}
+            >
+              Projekt anfragen
+            </PopButton>
           </Stack>
         </Stack>
       </m.div>

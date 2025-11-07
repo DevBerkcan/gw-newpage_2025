@@ -17,6 +17,7 @@ import {
   CarouselDotButtons,
   CarouselArrowBasicButtons,
 } from 'src/components/carousel';
+import { ScrollReveal } from 'src/components/scroll-reveal';
 
 // ----------------------------------------------------------------------
 
@@ -56,46 +57,49 @@ export function MarketingTeam({ members, sx, ...other }) {
               textAlign: { xs: 'center', md: 'unset' },
             }}
           >
-            <Typography variant="overline" sx={{ color: 'grey.600' }}>
-              Team
-            </Typography>
+            <ScrollReveal variant="fadeInLeft" delay={0.1}>
+              <Typography variant="overline" sx={{ color: 'grey.600' }}>
+                Unser Team
+              </Typography>
 
-            <Typography
-              variant="h2"
-              sx={(theme) => ({
-                ...theme.mixins.textGradient(
-                  `90deg, ${theme.vars.palette.primary.main} 20%, ${theme.vars.palette.secondary.main} 100%`
-                ),
-              })}
-            >
-              Meet our team
-            </Typography>
+              <Typography
+                variant="h2"
+                sx={(theme) => ({
+                  ...theme.mixins.textGradient(
+                    `90deg, ${theme.vars.palette.primary.main} 20%, ${theme.vars.palette.secondary.main} 100%`
+                  ),
+                })}
+              >
+                Die Köpfe hinter Gentle Webdesign
+              </Typography>
 
-            <Typography sx={{ color: 'common.white' }}>
-              Since wire-frame renderings are relatively simple and fast to calculate, they are
-              often used in cases
-            </Typography>
+              <Typography sx={{ color: 'common.white' }}>
+                Expertise, Leidenschaft und Kreativität - unser Team vereint jahrelange Erfahrung in Webentwicklung, Design und digitaler Innovation.
+              </Typography>
 
-            <CarouselArrowBasicButtons
-              {...carousel.arrows}
-              options={carousel.options}
-              sx={{
-                gap: 1,
-                mt: 'auto',
-                color: 'primary.main',
-                display: { xs: 'none', md: 'flex' },
-              }}
-            />
+              <CarouselArrowBasicButtons
+                {...carousel.arrows}
+                options={carousel.options}
+                sx={{
+                  gap: 1,
+                  mt: 'auto',
+                  color: 'primary.main',
+                  display: { xs: 'none', md: 'flex' },
+                }}
+              />
+            </ScrollReveal>
           </Grid>
 
           <Grid size={{ xs: 12, md: 7 }}>
-            <Box sx={{ width: { md: 'calc(50vw + 120px)' } }}>
-              <Carousel carousel={carousel}>
-                {members.map((item) => (
-                  <MemberItem key={item.id} item={item} sx={{ color: 'common.white' }} />
-                ))}
-              </Carousel>
-            </Box>
+            <ScrollReveal variant="fadeInRight" delay={0.2}>
+              <Box sx={{ width: { md: 'calc(50vw + 120px)' } }}>
+                <Carousel carousel={carousel}>
+                  {members.map((item) => (
+                    <MemberItem key={item.id} item={item} sx={{ color: 'common.white' }} />
+                  ))}
+                </Carousel>
+              </Box>
+            </ScrollReveal>
           </Grid>
         </Grid>
 

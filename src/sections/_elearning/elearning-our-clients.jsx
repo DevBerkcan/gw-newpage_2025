@@ -22,12 +22,15 @@ export function ElearningOurClients({ brands, sx, ...other }) {
     >
       <Container>
         <Box sx={{ textAlign: 'center', mb: { xs: 5, md: 10 } }}>
+          <Typography variant="overline" sx={{ color: 'text.disabled', mb: 2, display: 'block' }}>
+            Vertrauen Sie auf Expertise
+          </Typography>
           <Typography variant="h2" sx={{ mb: 3 }}>
-            We work with
+            Unsere Technologie-Partner
           </Typography>
 
           <Typography sx={{ color: 'text.secondary' }}>
-            Quisque aliquet, libero consequat elementum convallis.
+            Wir setzen auf bewährte Technologien und arbeiten mit führenden Plattformen zusammen, um Ihnen die besten Lösungen zu bieten.
           </Typography>
         </Box>
 

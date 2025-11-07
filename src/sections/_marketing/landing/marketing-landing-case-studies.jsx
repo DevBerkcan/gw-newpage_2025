@@ -13,6 +13,7 @@ import { RouterLink } from 'src/routes/components';
 
 import { Iconify } from 'src/components/iconify';
 import { Image, imageClasses } from 'src/components/image';
+import { ScrollReveal } from 'src/components/scroll-reveal';
 
 // ----------------------------------------------------------------------
 
@@ -20,9 +21,12 @@ export function MarketingLandingCaseStudies({ caseStudies, sx, ...other }) {
   const renderTexts = () => (
     <Box sx={{ textAlign: { xs: 'center', md: 'unset' } }}>
       <Typography variant="overline" sx={{ mb: 3, display: 'block', color: 'text.disabled' }}>
-        Our work
+        Unsere Projekte
       </Typography>
-      <Typography variant="h2">Case studies</Typography>
+      <Typography variant="h2">Erfolgsgeschichten unserer Kunden</Typography>
+      <Typography sx={{ mt: 2, color: 'text.secondary', maxWidth: 600 }}>
+        Von E-Commerce-Plattformen bis zu komplexen Web-Applikationen - entdecken Sie, wie wir Unternehmen zum digitalen Erfolg verhelfen.
+      </Typography>
     </Box>
   );
 
@@ -40,17 +44,23 @@ export function MarketingLandingCaseStudies({ caseStudies, sx, ...other }) {
 
         <Grid spacing={3} container sx={{ alignItems: 'center', py: { xs: 5, md: 10 } }}>
           <Grid size={{ xs: 6, md: 2 }}>
-            <SmallItem item={caseStudies[0]} />
+            <ScrollReveal variant="fadeInLeft" delay={0.1}>
+              <SmallItem item={caseStudies[0]} />
+            </ScrollReveal>
           </Grid>
 
           <Grid sx={{ display: { md: 'none' } }} size={{ xs: 6, md: 2 }}>
-            <SmallItem item={caseStudies[5]} />
+            <ScrollReveal variant="fadeInRight" delay={0.1}>
+              <SmallItem item={caseStudies[5]} />
+            </ScrollReveal>
           </Grid>
 
           <Grid container size={{ xs: 12, sm: 12, md: 8 }}>
             <Grid size={{ xs: 6, md: 9 }}>
-              <LargeItem item={caseStudies[1]} sx={{ display: { xs: 'none', md: 'flex' } }} />
-              <SmallItem item={caseStudies[1]} isSquare sx={{ display: { md: 'none' } }} />
+              <ScrollReveal variant="fadeInUp" delay={0.2}>
+                <LargeItem item={caseStudies[1]} sx={{ display: { xs: 'none', md: 'flex' } }} />
+                <SmallItem item={caseStudies[1]} isSquare sx={{ display: { md: 'none' } }} />
+              </ScrollReveal>
             </Grid>
 
             <Grid
@@ -60,21 +70,29 @@ export function MarketingLandingCaseStudies({ caseStudies, sx, ...other }) {
                 flexDirection: { md: 'column' },
               }}
             >
-              <SmallItem item={caseStudies[2]} isSquare sx={{ mt: { md: 'auto' } }} />
+              <ScrollReveal variant="scaleIn" delay={0.3}>
+                <SmallItem item={caseStudies[2]} isSquare sx={{ mt: { md: 'auto' } }} />
+              </ScrollReveal>
             </Grid>
 
             <Grid size={{ xs: 6, md: 3 }}>
-              <SmallItem item={caseStudies[3]} isSquare />
+              <ScrollReveal variant="scaleIn" delay={0.4}>
+                <SmallItem item={caseStudies[3]} isSquare />
+              </ScrollReveal>
             </Grid>
 
             <Grid size={{ xs: 6, md: 9 }}>
-              <LargeItem item={caseStudies[4]} sx={{ display: { xs: 'none', md: 'flex' } }} />
-              <SmallItem item={caseStudies[4]} isSquare sx={{ display: { md: 'none' } }} />
+              <ScrollReveal variant="fadeInUp" delay={0.5}>
+                <LargeItem item={caseStudies[4]} sx={{ display: { xs: 'none', md: 'flex' } }} />
+                <SmallItem item={caseStudies[4]} isSquare sx={{ display: { md: 'none' } }} />
+              </ScrollReveal>
             </Grid>
           </Grid>
 
           <Grid sx={{ display: { xs: 'none', md: 'block' } }} size={{ xs: 6, md: 2 }}>
-            <SmallItem item={caseStudies[5]} />
+            <ScrollReveal variant="fadeInRight" delay={0.6}>
+              <SmallItem item={caseStudies[5]} />
+            </ScrollReveal>
           </Grid>
         </Grid>
 
@@ -86,7 +104,7 @@ export function MarketingLandingCaseStudies({ caseStudies, sx, ...other }) {
             color="inherit"
             endIcon={<Iconify icon="solar:alt-arrow-right-outline" />}
           >
-            View all
+            Alle Projekte ansehen
           </Button>
         </Box>
       </Container>
@@ -126,7 +144,7 @@ function LargeItem({ item, sx }) {
         endIcon={<Iconify width={16} icon="solar:alt-arrow-right-outline" sx={{ ml: -0.5 }} />}
         sx={{ mt: 'auto', alignSelf: 'flex-end' }}
       >
-        Learn more
+        Mehr erfahren
       </Button>
     </Box>
   );

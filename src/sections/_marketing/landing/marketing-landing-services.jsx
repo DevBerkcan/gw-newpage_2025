@@ -14,6 +14,7 @@ import { CONFIG } from 'src/global-config';
 
 import { Iconify } from 'src/components/iconify';
 import { SvgColor } from 'src/components/svg-color';
+import { ScrollReveal } from 'src/components/scroll-reveal';
 
 // ----------------------------------------------------------------------
 
@@ -23,27 +24,27 @@ const COLORS = ['primary', 'secondary', 'success', 'warning'];
 
 const SERVICES = [
   {
-    name: 'SEO',
-    icon: iconPath('ic-seo.svg'),
-    content: 'Nunc nonummy metus. Donec elit libero',
+    name: 'Webdesign & Entwicklung',
+    icon: iconPath('ic-web-programming.svg'),
+    content: 'Moderne, performante Websites mit Next.js, React und erstklassiger UX/UI - DSGVO-konform und SEO-optimiert.',
     path: paths.marketing.services,
   },
   {
-    name: 'Email marketing',
-    icon: iconPath('ic-marketing-mail.svg'),
-    content: 'Nunc nonummy metus. Donec elit libero',
+    name: 'KI-Lösungen & Automation',
+    icon: iconPath('ic-ai.svg'),
+    content: 'Intelligente Chatbots, RAG-Systeme und Prozessautomatisierungen, die Ihre Workflows revolutionieren.',
     path: paths.marketing.services,
   },
   {
-    name: 'Search engine oprimization',
-    icon: iconPath('ic-search-oprimization.svg'),
-    content: 'Nunc nonummy metus. Donec elit libero',
+    name: 'E-Commerce & Shopify',
+    icon: iconPath('ic-ecommerce.svg'),
+    content: 'Hochkonvertierende Online-Shops mit Shopify oder Headless Commerce für maximale Performance.',
     path: paths.marketing.services,
   },
   {
-    name: 'Social marketing',
-    icon: iconPath('ic-marketing-bullhorn.svg'),
-    content: 'Nunc nonummy metus. Donec elit libero',
+    name: 'Branding & Design',
+    icon: iconPath('ic-design.svg'),
+    content: 'Corporate Identity, Logos und Brand Guides mit Wiedererkennungswert - konsistent über alle Kanäle.',
     path: paths.marketing.services,
   },
 ];
@@ -68,13 +69,13 @@ export function MarketingLandingServices({ sx, ...other }) {
           }}
         >
           <Typography variant="overline" sx={{ color: 'text.disabled' }}>
-            Our services
+            Unsere Leistungen
           </Typography>
 
-          <Typography variant="h2">We provide</Typography>
+          <Typography variant="h2">Was wir für Sie tun</Typography>
 
           <Typography sx={{ color: 'text.secondary' }}>
-            Nunc nonummy metus. Donec elit libero, sodales nec, volutpat a, suscipit non, turpis.
+            Von der ersten Idee bis zum erfolgreichen Launch - wir begleiten Sie mit modernster Technologie und kreativen Lösungen, die Ihre Zielgruppe begeistern.
           </Typography>
         </Stack>
 
@@ -91,7 +92,9 @@ export function MarketingLandingServices({ sx, ...other }) {
           }}
         >
           {SERVICES.map((item, index) => (
-            <ServiceItem key={item.name} item={item} index={index} />
+            <ScrollReveal key={item.name} variant="fadeInUp" delay={index * 0.1}>
+              <ServiceItem item={item} index={index} />
+            </ScrollReveal>
           ))}
         </Box>
       </Container>
@@ -110,6 +113,12 @@ function ServiceItem({ item, index }) {
         textAlign: 'center',
         bgcolor: 'transparent',
         boxShadow: theme.vars.customShadows.card,
+        transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+        cursor: 'pointer',
+        '&:hover': {
+          transform: 'translateY(-12px) scale(1.02)',
+          boxShadow: `-24px 32px 80px -8px ${varAlpha(theme.vars.palette[COLORS[index]].mainChannel, 0.28)}`,
+        },
         [theme.breakpoints.up('md')]: {
           boxShadow: 'none',
           ...(index === 1 && { py: 8 }),

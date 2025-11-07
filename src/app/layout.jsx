@@ -10,6 +10,7 @@ import { themeOverrides } from 'src/theme/theme-overrides';
 
 import { ProgressBar } from 'src/components/progress-bar';
 import { MotionLazy } from 'src/components/animate/motion-lazy';
+import { CookieBanner } from 'src/components/cookie-banner';
 import { SettingsDrawer, defaultSettings, SettingsProvider } from 'src/components/settings';
 
 // ----------------------------------------------------------------------
@@ -50,6 +51,7 @@ export default async function RootLayout({ children }) {
                 <MotionLazy>
                   <ProgressBar />
                   <SettingsDrawer defaultSettings={defaultSettings} />
+                  <CookieBanner />
                   {children}
                 </MotionLazy>
               </ThemeProvider>

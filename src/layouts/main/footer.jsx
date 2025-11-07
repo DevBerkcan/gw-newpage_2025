@@ -32,24 +32,62 @@ export function Footer({ layoutQuery = 'md', sx, ...other }) {
     <>
       <Logo />
       <Typography variant="body2" sx={{ maxWidth: 360, color: 'text.secondary' }}>
-        The starting point for your next project based on easy-to-customize Material-UI © helps you
-        build apps faster and better.
+        Professionelle Digital-Agentur für Webdesign, Web-Entwicklung, KI-Lösungen und E-Commerce.
+        Von der Idee bis zum Go-Live - messbar, sicher und skalierbar.
       </Typography>
+
+      {/* Phone Number */}
+      <Link
+        href="tel:+491704701892"
+        variant="h6"
+        color="inherit"
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: 1,
+          mt: 2,
+          '&:hover': { color: 'primary.main' }
+        }}
+      >
+        <Iconify icon="solar:phone-bold" width={24} />
+        +49 170 4701892
+      </Link>
     </>
   );
 
-  const renderCommunity = () => (
+  const renderCertifications = () => (
     <>
-      <Typography variant="h6">Community</Typography>
-      <Link variant="body2" color="inherit">
-        Documentation
-      </Link>
-      <Link variant="body2" color="inherit">
-        Changelog
-      </Link>
-      <Link variant="body2" color="inherit">
-        Contributing
-      </Link>
+      <Typography variant="h6" sx={{ mb: 2 }}>Zertifizierungen</Typography>
+
+      <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+          <Iconify icon="mdi:microsoft" width={20} color="primary.main" />
+          <Typography variant="body2" color="text.secondary">
+            Microsoft Certified Professional
+          </Typography>
+        </Box>
+
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+          <Iconify icon="simple-icons:microsoftazure" width={20} color="primary.main" />
+          <Typography variant="body2" color="text.secondary">
+            Azure Developer (AZ-204)
+          </Typography>
+        </Box>
+
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+          <Iconify icon="simple-icons:microsoftazure" width={20} color="primary.main" />
+          <Typography variant="body2" color="text.secondary">
+            DevOps Engineer (AZ-400)
+          </Typography>
+        </Box>
+
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+          <Iconify icon="carbon:collaborate" width={20} color="primary.main" />
+          <Typography variant="body2" color="text.secondary">
+            Certified Scrum Master
+          </Typography>
+        </Box>
+      </Box>
     </>
   );
 
@@ -57,27 +95,27 @@ export function Footer({ layoutQuery = 'md', sx, ...other }) {
     <>
       <div>
         <Typography variant="h6" sx={{ mb: 1 }}>
-          Let’s stay in touch
+          Bleiben Sie auf dem Laufenden
         </Typography>
         <Typography
           variant="caption"
           sx={{ maxWidth: 360, display: 'block', color: 'text.secondary' }}
         >
-          Ubscribe to our newsletter to receive latest articles to your inbox weekly.
+          Erhalten Sie wöchentlich Updates zu Webdesign-Trends, Technologie-News und unseren neuesten Projekten.
         </Typography>
       </div>
 
       <TextField
         fullWidth
         hiddenLabel
-        placeholder="Email address"
+        placeholder="Ihre E-Mail-Adresse"
         sx={{ maxWidth: 420 }}
         slotProps={{
           input: {
             endAdornment: (
               <InputAdornment position="end">
                 <Button variant="contained" color="inherit" size="large" sx={{ mr: -1.25 }}>
-                  Subscribe
+                  Abonnieren
                 </Button>
               </InputAdornment>
             ),
@@ -200,7 +238,7 @@ export function Footer({ layoutQuery = 'md', sx, ...other }) {
           </Box>
 
           <Box sx={[(theme) => ({ ...blockStyles(theme, layoutQuery) }), { gap: 1 }]}>
-            {renderCommunity()}
+            {renderCertifications()}
           </Box>
 
           <Box sx={[(theme) => ({ ...blockStyles(theme, layoutQuery) })]}>{renderSubscribe()}</Box>
@@ -229,7 +267,7 @@ export function Footer({ layoutQuery = 'md', sx, ...other }) {
         flexDirection: { xs: 'column', md: 'row' },
       }}
     >
-      <Typography variant="caption"> © All rights reserved.</Typography>
+      <Typography variant="caption"> © 2025 Gentle Webdesign. Alle Rechte vorbehalten.</Typography>
 
       <Box
         component="span"
@@ -240,8 +278,13 @@ export function Footer({ layoutQuery = 'md', sx, ...other }) {
           justifyContent: 'center',
         }}
       >
-        <Link variant="caption" color="inherit">
-          Help center
+        <Link
+          component={RouterLink}
+          href="/impressum"
+          variant="caption"
+          color="inherit"
+        >
+          Impressum
         </Link>
         <Box
           sx={{
@@ -252,8 +295,30 @@ export function Footer({ layoutQuery = 'md', sx, ...other }) {
             bgcolor: 'currentColor',
           }}
         />
-        <Link variant="caption" color="inherit">
-          Terms of service
+        <Link
+          component={RouterLink}
+          href="/datenschutz"
+          variant="caption"
+          color="inherit"
+        >
+          Datenschutzerklärung
+        </Link>
+        <Box
+          sx={{
+            width: 3,
+            height: 3,
+            opacity: 0.4,
+            borderRadius: '50%',
+            bgcolor: 'currentColor',
+          }}
+        />
+        <Link
+          component={RouterLink}
+          href="/agb"
+          variant="caption"
+          color="inherit"
+        >
+          AGB
         </Link>
       </Box>
     </Container>

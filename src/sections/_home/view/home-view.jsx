@@ -6,9 +6,10 @@ import Fab from '@mui/material/Fab';
 import Box from '@mui/material/Box';
 import SvgIcon from '@mui/material/SvgIcon';
 
-import { _pricingHome, _brands, _members } from 'src/_mock';
+import { _pricingHome, _brands, _members, _caseStudies } from 'src/_mock';
 
 import { ScrollProgress, useScrollProgress } from 'src/components/animate/scroll-progress';
+import { LogoIntro } from 'src/components/logo-intro';
 
 import { HomeHero } from '../home-hero';
 import { HomeFAQs } from '../home-faqs';
@@ -20,8 +21,11 @@ import { HomeAdvertisement } from '../home-advertisement';
 import { ElearningOurClients } from 'src/sections/_elearning/elearning-our-clients';
 import { MarketingLandingServices } from 'src/sections/_marketing/landing/marketing-landing-services';
 import { MarketingLandingProcess } from 'src/sections/_marketing/landing/marketing-landing-process';
+import { MarketingLandingCaseStudies } from 'src/sections/_marketing/landing/marketing-landing-case-studies';
 import { MarketingTeam } from 'src/sections/_marketing/marketing-team';
 import { HomeFlexibleComponents } from '../home-flexible-components';
+import { HomeContactCTA } from '../home-contact-cta';
+import { HomeTestimonials } from '../home-testimonials';
 
 
 
@@ -32,19 +36,21 @@ export function HomeView() {
 const _members = [
   {
     id: '1',
-    name: 'Atesoglu, Berk-Can',
-    role: 'CEO',
+    name: 'Berk-Can Atesoglu',
+    role: 'CEO & Full-Stack Developer',
     photoUrl: '/assets/images/team/team-1.jpg'
   },
-    {
+  {
     id: '2',
-    name: 'Turkes, Medin',
-    role: 'Teamlead',
-    photoUrl: '/assets/images/team/team-1.jpg'
+    name: 'Medin Turkes',
+    role: 'Team Lead & UX Designer',
+    photoUrl: '/assets/images/team/team-2.jpg'
   },
 ];
   return (
     <>
+      <LogoIntro />
+
       <ScrollProgress
         variant="linear"
         progress={pageProgress.scrollYProgress}
@@ -64,14 +70,12 @@ const _members = [
         <ElearningOurClients brands={_brands} />
         <MarketingLandingServices />
         <MarketingLandingProcess />
+        <MarketingLandingCaseStudies caseStudies={_caseStudies} />
         <MarketingTeam members={_members} />
-        <HomeNewStart />
-        <HomeFlexibleComponents />
-        <HomeForDesigner />
+        <HomeTestimonials />
         <HomePricing plans={_pricingHome} />
         <HomeFAQs />
-        <HomeMinimalUI />
-        <HomeAdvertisement />
+        <HomeContactCTA />
       </Box>
     </>
   );
