@@ -10,8 +10,6 @@ import Typography from '@mui/material/Typography';
 
 import { paths } from 'src/routes/paths';
 
-import { CONFIG } from 'src/global-config';
-
 import { Label } from 'src/components/label';
 import { Iconify } from 'src/components/iconify';
 import { varFade, MotionViewport } from 'src/components/animate';
@@ -20,31 +18,95 @@ const variants = varFade('inUp', { distance: 24 });
 
 // ----------------------------------------------------------------------
 
-export function HomePricing({ plans, sx, ...other }) {
+// Wartungsvertrags-Pakete
+const MAINTENANCE_PLANS = [
+  {
+    name: 'Basic',
+    price: 299,
+    period: 'Monat',
+    popular: false,
+    description: 'Perfekt für kleine Websites und Startups',
+    features: [
+      { text: 'Monatliche Updates & Patches', available: true },
+      { text: 'Performance-Monitoring', available: true },
+      { text: 'Sicherheits-Scans', available: true },
+      { text: 'Backup (wöchentlich)', available: true },
+      { text: 'E-Mail Support (48h)', available: true },
+      { text: 'Bug-Fixes (2h/Monat)', available: true },
+      { text: 'Notfall-Hotline 24/7', available: false },
+      { text: 'Dedizierter DevOps-Support', available: false },
+      { text: 'Feature-Entwicklung', available: false },
+    ],
+  },
+  {
+    name: 'Professional',
+    price: 699,
+    period: 'Monat',
+    popular: true,
+    description: 'Ideal für wachsende Unternehmen',
+    features: [
+      { text: 'Monatliche Updates & Patches', available: true },
+      { text: 'Performance-Monitoring & Optimierung', available: true },
+      { text: 'Tägliche Sicherheits-Scans', available: true },
+      { text: 'Backup (täglich)', available: true },
+      { text: 'Priority Support (12h)', available: true },
+      { text: 'Bug-Fixes (6h/Monat)', available: true },
+      { text: 'Notfall-Hotline 24/7', available: true },
+      { text: 'Azure DevOps Integration', available: true },
+      { text: 'Feature-Entwicklung (4h/Monat)', available: true },
+    ],
+  },
+  {
+    name: 'Enterprise',
+    price: 1499,
+    period: 'Monat',
+    popular: false,
+    description: 'Vollumfängliche Betreuung für kritische Systeme',
+    features: [
+      { text: 'Continuous Updates & Patches', available: true },
+      { text: 'Advanced Performance-Optimierung', available: true },
+      { text: 'Security-Audits & Penetration Tests', available: true },
+      { text: 'Backup (stündlich + Geo-Redundanz)', available: true },
+      { text: 'Dedicated Support (4h)', available: true },
+      { text: 'Unbegrenzte Bug-Fixes', available: true },
+      { text: 'Notfall-Hotline 24/7 mit SLA', available: true },
+      { text: 'Dedizierter DevOps Engineer', available: true },
+      { text: 'Feature-Entwicklung (15h/Monat)', available: true },
+    ],
+  },
+];
+
+export function HomePricing({ sx, ...other }) {
   return (
     <Box
       component="section"
-      sx={[{ pt: { xs: 10, md: 15 }, pb: { xs: 5, md: 10 } }, ...(Array.isArray(sx) ? sx : [sx])]}
+      sx={[
+        (theme) => ({
+          py: { xs: 10, md: 15 },
+          bgcolor: theme.palette.mode === 'light' ? 'grey.100' : 'background.neutral',
+        }),
+        ...(Array.isArray(sx) ? sx : [sx]),
+      ]}
       {...other}
     >
       <Container component={MotionViewport}>
-        <Box sx={{ mx: 'auto', maxWidth: 480, textAlign: 'center', mb: { xs: 5, md: 10 } }}>
+        <Box sx={{ mx: 'auto', maxWidth: 640, textAlign: 'center', mb: { xs: 5, md: 10 } }}>
           <m.div variants={variants}>
-            <Typography variant="overline" sx={{ color: 'text.disabled' }}>
-              pricing plans
+            <Typography variant="overline" sx={{ color: 'text.disabled', mb: 2, display: 'block' }}>
+              Wartungs- & Support-Pakete
             </Typography>
           </m.div>
 
           <m.div variants={variants}>
-            <Typography variant="h2" sx={{ my: 3 }}>
-              Transparent pricing
+            <Typography variant="h2" sx={{ mb: 3 }}>
+              Software-Wartungsverträge
             </Typography>
           </m.div>
 
           <m.div variants={variants}>
             <Typography sx={{ color: 'text.secondary' }}>
-              Choose from flexible pricing options designed to fit your business needs and budget
-              with no hidden fees.
+              Professionelle Wartung, kontinuierliche Updates und technischer Support –
+              damit Ihre digitale Infrastruktur sicher, performant und zukunftsfähig bleibt.
             </Typography>
           </m.div>
         </Box>
@@ -53,113 +115,54 @@ export function HomePricing({ plans, sx, ...other }) {
           sx={{
             gap: 4,
             display: 'grid',
-            alignItems: 'center',
+            alignItems: 'flex-start',
             gridTemplateColumns: { xs: 'repeat(1, 1fr)', md: 'repeat(3, 1fr)' },
           }}
         >
-          {plans.map((plan) => (
-            <m.div key={plan.license}>
-              <PricingCard plan={plan} />
+          {MAINTENANCE_PLANS.map((plan, index) => (
+            <m.div key={plan.name} variants={varFade('inUp', { distance: 24, delay: 0.1 * index })}>
+              <MaintenanceCard plan={plan} />
             </m.div>
           ))}
         </Box>
+
+        {/* Zusätzliche Info */}
+        <m.div variants={variants}>
+          <Box
+            sx={{
+              mt: 8,
+              p: 4,
+              borderRadius: 2,
+              textAlign: 'center',
+              border: (theme) => `dashed 1px ${theme.vars.palette.divider}`,
+              bgcolor: (theme) => (theme.palette.mode === 'light' ? 'background.paper' : 'grey.900'),
+            }}
+          >
+            <Typography variant="h6" sx={{ mb: 1 }}>
+              Individuelle Lösungen gewünscht?
+            </Typography>
+            <Typography variant="body2" sx={{ color: 'text.secondary', mb: 2 }}>
+              Kontaktieren Sie uns für maßgeschneiderte Enterprise-Pakete mit SLA-Garantien und dediziertem Support-Team.
+            </Typography>
+            <Button
+              variant="outlined"
+              size="large"
+              href={paths.marketing.contact}
+              endIcon={<Iconify icon="solar:arrow-right-outline" />}
+            >
+              Beratungsgespräch vereinbaren
+            </Button>
+          </Box>
+        </m.div>
       </Container>
     </Box>
   );
 }
 
-const iconPath = (name) => `${CONFIG.assetsDir}/assets/icons/platforms/${name}`;
-
 // ----------------------------------------------------------------------
 
-export function PricingCard({ plan, sx }) {
-  const isStandardLicense = plan.license === 'Standard';
-  const isPlusLicense = plan.license === 'Plus';
-  const isExtendedLicense = plan.license === 'Extended';
-
-  const renderPrices = () => (
-    <Box sx={{ display: 'flex' }}>
-      <Box component="span" sx={{ flexGrow: 1, typography: 'h5' }}>
-        {plan.license}
-      </Box>
-
-      <Box sx={{ gap: 0.5, display: 'flex' }}>
-        <Box component="span" sx={{ typography: 'h4' }}>
-          $
-        </Box>
-
-        <Box component="span" sx={{ typography: 'h3' }}>
-          {plan.price}
-        </Box>
-      </Box>
-    </Box>
-  );
-
-  const renderIcons = () => (
-    <Box sx={{ gap: 1.5, display: 'flex' }}>
-      <Box
-        component="img"
-        loading="lazy"
-        alt="JavaScript"
-        src={iconPath('ic-js.svg')}
-        sx={{ width: 24, height: 24 }}
-      />
-      {!isStandardLicense && (
-        <>
-          <Box
-            component="img"
-            loading="lazy"
-            alt="TypeScript"
-            src={iconPath('ic-ts.svg')}
-            sx={{ width: 24, height: 24 }}
-          />
-          <Box
-            component="img"
-            loading="lazy"
-            alt="Figma"
-            src={iconPath('ic-figma.svg')}
-            sx={{ width: 24, height: 24 }}
-          />
-        </>
-      )}
-    </Box>
-  );
-
-  const renderList = () => (
-    <Box sx={{ gap: 2.5, display: 'flex', flexDirection: 'column' }}>
-      {plan.commons.map((option) => (
-        <Box
-          key={option}
-          sx={{ gap: 1.5, display: 'flex', typography: 'body2', alignItems: 'center' }}
-        >
-          <Iconify width={20} icon="eva:checkmark-fill" sx={{ color: 'primary.main' }} />
-          {option}
-        </Box>
-      ))}
-
-      <Divider sx={{ borderStyle: 'dashed' }} />
-
-      {plan.options.map((option) => (
-        <Box
-          key={option.title}
-          sx={{
-            gap: 1.5,
-            display: 'flex',
-            alignItems: 'center',
-            typography: 'body2',
-            ...(option.disabled && { color: 'text.disabled' }),
-          }}
-        >
-          <Iconify
-            width={20}
-            icon={option.disabled ? 'eva:close-outline' : 'eva:checkmark-fill'}
-            sx={{ color: 'primary.main', ...(option.disabled && { color: 'currentColor' }) }}
-          />
-          {option.title}
-        </Box>
-      ))}
-    </Box>
-  );
+function MaintenanceCard({ plan }) {
+  const isPopular = plan.popular;
 
   return (
     <Paper
@@ -167,48 +170,109 @@ export function PricingCard({ plan, sx }) {
       sx={[
         (theme) => ({
           p: 5,
-          gap: 5,
+          gap: 3,
+          height: 1,
           display: 'flex',
-          borderRadius: 2,
+          borderRadius: 3,
           position: 'relative',
-          bgcolor: 'transparent',
           flexDirection: 'column',
-          boxShadow: theme.vars.customShadows.card,
-          [theme.breakpoints.up('md')]: { boxShadow: 'none' },
+          bgcolor: 'background.paper',
+          transition: 'all 0.3s ease',
+          border: `2px solid ${theme.vars.palette.divider}`,
+          '&:hover': {
+            transform: 'translateY(-8px)',
+            boxShadow: theme.vars.customShadows.z24,
+          },
         }),
         (theme) =>
-          isPlusLicense && {
-            py: 10,
-            [theme.breakpoints.up('md')]: {
-              boxShadow: `-24px 24px 72px -8px ${varAlpha(theme.vars.palette.grey['500Channel'], 0.24)}`,
-              ...theme.applyStyles('dark', {
-                boxShadow: `-24px 24px 72px -8px ${varAlpha(theme.vars.palette.common.blackChannel, 0.24)}`,
-              }),
-            },
+          isPopular && {
+            py: 6,
+            border: `2px solid ${theme.vars.palette.primary.main}`,
+            boxShadow: `-24px 24px 72px -8px ${varAlpha(theme.vars.palette.primary.mainChannel, 0.24)}`,
           },
-        ...(Array.isArray(sx) ? sx : [sx]),
       ]}
     >
-      {isPlusLicense && (
-        <Label color="info" sx={{ position: 'absolute', top: 40, left: 40 }}>
-          POPULAR
+      {/* Popular Badge */}
+      {isPopular && (
+        <Label
+          color="primary"
+          sx={{
+            position: 'absolute',
+            top: 24,
+            right: 24,
+            textTransform: 'uppercase',
+          }}
+        >
+          Beliebt
         </Label>
       )}
 
-      {renderPrices()}
-      {renderIcons()}
-      {renderList()}
+      {/* Header */}
+      <Box>
+        <Typography variant="h4" sx={{ mb: 1 }}>
+          {plan.name}
+        </Typography>
+        <Typography variant="body2" sx={{ color: 'text.secondary', minHeight: 40 }}>
+          {plan.description}
+        </Typography>
+      </Box>
 
+      {/* Price */}
+      <Box sx={{ display: 'flex', alignItems: 'baseline', gap: 0.5 }}>
+        <Typography variant="h3" sx={{ fontWeight: 800 }}>
+          €{plan.price}
+        </Typography>
+        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+          / {plan.period}
+        </Typography>
+      </Box>
+
+      <Divider sx={{ borderStyle: 'dashed' }} />
+
+      {/* Features List */}
+      <Box sx={{ gap: 2, display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+        {plan.features.map((feature, index) => (
+          <Box
+            key={index}
+            sx={{
+              gap: 1.5,
+              display: 'flex',
+              alignItems: 'flex-start',
+              typography: 'body2',
+              color: feature.available ? 'text.primary' : 'text.disabled',
+            }}
+          >
+            <Iconify
+              width={20}
+              icon={feature.available ? 'eva:checkmark-circle-2-fill' : 'eva:close-circle-outline'}
+              sx={{
+                mt: 0.25,
+                flexShrink: 0,
+                color: feature.available ? 'success.main' : 'text.disabled',
+              }}
+            />
+            <span>{feature.text}</span>
+          </Box>
+        ))}
+      </Box>
+
+      {/* CTA Button */}
       <Button
         size="large"
         fullWidth
-        variant={isStandardLicense ? 'outlined' : 'contained'}
-        color={isExtendedLicense ? 'primary' : 'inherit'}
-        target="_blank"
-        rel="noopener"
-        href={paths.zoneStore}
+        variant={isPopular ? 'contained' : 'outlined'}
+        color={isPopular ? 'primary' : 'inherit'}
+        href={paths.marketing.contact}
+        endIcon={<Iconify icon="solar:arrow-right-outline" />}
+        sx={{
+          mt: 'auto',
+          ...(isPopular && {
+            background: (theme) =>
+              `linear-gradient(135deg, ${theme.vars.palette.primary.main} 0%, ${theme.vars.palette.primary.dark} 100%)`,
+          }),
+        }}
       >
-        Choose package
+        Paket wählen
       </Button>
     </Paper>
   );

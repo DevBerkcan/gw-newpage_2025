@@ -11,6 +11,9 @@ import Typography from '@mui/material/Typography';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 
+import { CONFIG } from 'src/global-config';
+import { paths } from 'src/routes/paths';
+
 import { TrianglePattern } from 'src/assets/illustrations/components/shape-pattern';
 
 import { Iconify } from 'src/components/iconify';
@@ -20,100 +23,150 @@ import { varFade, MotionViewport } from 'src/components/animate';
 
 const FAQs = [
   {
-    question: 'How can I get the update?',
+    question: 'Wie lange dauert die Entwicklung einer individuellen Software-Lösung?',
     answer: (
       <Typography>
-        You will get 12 months of free
-        <Link
-          href="https://support.mui.com/hc/en-us/articles/360008775240-How-do-I-get-access-to-an-item-I-purchased"
-          target="_blank"
-          rel="noopener"
-          sx={{ mx: 0.5 }}
-        >
-          updates
-        </Link>
-        with the purchase. Please renew your license to get updates after that.
+        Die Entwicklungszeit hängt stark vom Projektumfang ab. Kleinere Web-Anwendungen können in{' '}
+        <strong>4-8 Wochen</strong> realisiert werden, während komplexere Enterprise-Lösungen mit
+        KI-Integration <strong>3-6 Monate</strong> in Anspruch nehmen. Nach einem kostenlosen
+        Erstgespräch erstellen wir eine detaillierte Zeitplanung für Ihr Projekt.
       </Typography>
     ),
   },
   {
-    question: 'Which license is right for you?',
+    question: 'Welche Technologien nutzt Gentle Webdesign für die Entwicklung?',
     answer: (
       <Box component="ul" sx={{ pl: 3, listStyleType: 'disc' }}>
-        <li> All licenses do not apply to open source.</li>
-        <li> One licenses / one end product (3 licenses / 3 products...).</li>
         <li>
-          <strong>Standard / Plus</strong> license used in free products (Internal management...).
+          <strong>Frontend:</strong> React, Next.js, TypeScript, Material-UI
         </li>
         <li>
-          <strong>Extended</strong> license used in charge products, collect fees from users
-          (SAAS...).
+          <strong>Backend:</strong> Node.js, Python, .NET Core
         </li>
         <li>
-          Learn more about the
-          <Link
-            href="https://zone-docs.vercel.app/package"
-            target="_blank"
-            rel="noopener"
-            sx={{ mx: 0.5 }}
-          >
-            package & license
-          </Link>
+          <strong>Cloud & DevOps:</strong> Microsoft Azure, AWS, Docker, Kubernetes
+        </li>
+        <li>
+          <strong>KI & Machine Learning:</strong> OpenAI API, TensorFlow, Azure AI Services
+        </li>
+        <li>
+          <strong>Datenbanken:</strong> PostgreSQL, MongoDB, Azure SQL
         </li>
       </Box>
     ),
   },
   {
-    question: 'How long is my license valid for?',
-    answer: (
-      <Box component="ul" sx={{ pl: 3, listStyleType: 'disc' }}>
-        <li> The license is lifetime.</li>
-        <li> You get 12 months of free updates.</li>
-      </Box>
-    ),
-  },
-  {
-    question: 'Which platforms will the template support?',
+    question: 'Bietet ihr auch KI-Lösungen und Automatisierungen an?',
     answer: (
       <Typography>
-        {`The components in MUI are designed to work in the latest, stable releases of all major browsers, including Chrome, Firefox, Safari, and Edge. We don't support Internet Explorer 11. `}
-        Learn more about the
-        <Link
-          href="https://mui.com/material-ui/getting-started/supported-platforms/"
-          target="_blank"
-          rel="noopener"
-          sx={{ mx: 0.5 }}
-        >
-          supported platforms
-        </Link>
+        Ja, absolut! Wir entwickeln maßgeschneiderte KI-Lösungen, darunter:
+        <Box component="ul" sx={{ pl: 3, mt: 1, listStyleType: 'disc' }}>
+          <li>Chatbots und virtuelle Assistenten (GPT-4, Claude)</li>
+          <li>Automatisierte Datenanalyse und Reporting</li>
+          <li>Predictive Analytics und Machine Learning Modelle</li>
+          <li>Workflow-Automatisierung mit KI-gestützter Entscheidungsfindung</li>
+          <li>Integration von Azure OpenAI Services in bestehende Systeme</li>
+        </Box>
       </Typography>
     ),
   },
   {
-    question: 'For what kind of projects is the Standard license intended?',
+    question: 'Was kostet ein Software-Entwicklungsprojekt?',
     answer: (
       <Typography>
-        The Standard license is designed for internal applications in which staff will access the
-        application. An example could be the back-office dashboard of a public-facing e-commerce
-        website in which staff would sign in and manage inventory, customers, etc.
+        Die Kosten variieren je nach Komplexität und Anforderungen:
+        <Box component="ul" sx={{ pl: 3, mt: 1, listStyleType: 'disc' }}>
+          <li>
+            <strong>Kleine Websites/Landing Pages:</strong> ab €2.500
+          </li>
+          <li>
+            <strong>Business-Websites mit CMS:</strong> €5.000 - €15.000
+          </li>
+          <li>
+            <strong>Web-Anwendungen & Dashboards:</strong> €10.000 - €50.000
+          </li>
+          <li>
+            <strong>Enterprise-Lösungen mit KI:</strong> ab €50.000
+          </li>
+        </Box>
+        Nach einem Beratungsgespräch erstellen wir ein transparentes Festpreisangebot ohne versteckte Kosten.
       </Typography>
     ),
   },
   {
-    question: 'Do you have a free demo to review the code before purchasing?',
+    question: 'Bietet ihr auch Online-Marketing und Google Ads Kampagnen an?',
     answer: (
       <Typography>
-        Yes, you can check out our
-        <Link
-          href="https://mui.com/store/items/minimal-dashboard-free/"
-          target="_blank"
-          rel="noopener"
-          sx={{ mx: 0.5 }}
-        >
-          open source
+        Ja! Neben der Software-Entwicklung bieten wir umfassende Digital Marketing Services:
+        <Box component="ul" sx={{ pl: 3, mt: 1, listStyleType: 'disc' }}>
+          <li>
+            <strong>Google Ads (SEA):</strong> Kampagnen-Setup, Optimierung und Monitoring
+          </li>
+          <li>
+            <strong>Social Media Marketing:</strong> Facebook, Instagram, LinkedIn Kampagnen
+          </li>
+          <li>
+            <strong>SEO:</strong> Suchmaschinenoptimierung für nachhaltige Rankings
+          </li>
+          <li>
+            <strong>Content Marketing:</strong> Strategieentwicklung und Content-Erstellung
+          </li>
+          <li>
+            <strong>Analytics & Tracking:</strong> Google Analytics 4, Tag Manager, Conversion-Tracking
+          </li>
+        </Box>
+        Wir kombinieren technisches Know-how mit Marketing-Expertise für maximalen ROI.
+      </Typography>
+    ),
+  },
+  {
+    question: 'Was ist in den Wartungsverträgen enthalten?',
+    answer: (
+      <Typography>
+        Unsere Wartungsverträge stellen sicher, dass Ihre Software sicher, performant und
+        up-to-date bleibt:
+        <Box component="ul" sx={{ pl: 3, mt: 1, listStyleType: 'disc' }}>
+          <li>Regelmäßige Security-Updates und Patches</li>
+          <li>Performance-Monitoring und Optimierung</li>
+          <li>Automatische Backups (täglich bis stündlich)</li>
+          <li>Bug-Fixes und technischer Support</li>
+          <li>Feature-Updates und kleinere Anpassungen</li>
+          <li>24/7 Notfall-Hotline (ab Professional-Paket)</li>
+        </Box>
+        Mehr Details finden Sie in unseren{' '}
+        <Link href="#pricing" sx={{ fontWeight: 600 }}>
+          Wartungspaketen
         </Link>
-        dashboard template which should give you an overview of the code quality and folder
-        structure. Keep in mind that some aspects may differ from this paid version.
+        .
+      </Typography>
+    ),
+  },
+  {
+    question: 'Wie läuft ein typisches Projekt bei euch ab?',
+    answer: (
+      <Typography>
+        Wir arbeiten nach agilen Methoden (Scrum) mit transparenten Prozessen:
+        <Box component="ul" sx={{ pl: 3, mt: 1, listStyleType: 'disc' }}>
+          <li>
+            <strong>1. Discovery Phase:</strong> Kostenloses Erstgespräch, Anforderungsanalyse
+          </li>
+          <li>
+            <strong>2. Konzeption:</strong> Wireframes, Design-Entwürfe, technische Architektur
+          </li>
+          <li>
+            <strong>3. Entwicklung:</strong> Agile Sprints mit regelmäßigen Reviews (alle 2 Wochen)
+          </li>
+          <li>
+            <strong>4. Testing & QA:</strong> Umfangreiche Tests, User Acceptance Testing
+          </li>
+          <li>
+            <strong>5. Launch:</strong> Deployment, Schulung, Go-Live Support
+          </li>
+          <li>
+            <strong>6. Support:</strong> Wartung, Updates, kontinuierliche Optimierung
+          </li>
+        </Box>
+        Sie erhalten während des gesamten Projekts vollen Zugriff auf unser Azure DevOps Board.
       </Typography>
     ),
   },
@@ -170,51 +223,91 @@ export function HomeFAQs({ sx, ...other }) {
         <Grid container spacing={{ md: 3 }} sx={{ justifyContent: 'center' }}>
           <Grid size={{ xs: 12, md: 8 }}>
             <m.div variants={variants}>
+              <Typography variant="overline" sx={{ color: 'text.disabled', textAlign: 'center', display: 'block', mb: 2 }}>
+                Häufig gestellte Fragen
+              </Typography>
+            </m.div>
+
+            <m.div variants={variants}>
               <Typography variant="h2" sx={{ textAlign: 'center' }}>
-                Frequently asked questions
+                Alles, was Sie wissen müssen
               </Typography>
             </m.div>
 
             <m.div variants={variants}>{renderList()}</m.div>
-
-            <Box
-              sx={(theme) => ({
-                gap: 3,
-                display: 'flex',
-                borderRadius: 3,
-                textAlign: 'center',
-                alignItems: 'center',
-                flexDirection: 'column',
-                px: { xs: 3, md: 5 },
-                py: { xs: 6, md: 8 },
-                border: `dashed 1px ${theme.vars.palette.divider}`,
-              })}
-            >
-              <m.div variants={variants}>
-                <Typography component="h6" variant="h3">
-                  Still have questions?
-                </Typography>
-              </m.div>
-
-              <m.div variants={variants}>
-                <Typography sx={{ color: 'text.secondary' }}>
-                  Please describe your case to receive the most accurate advice.
-                </Typography>
-              </m.div>
-
-              <m.div variants={variants}>
-                <Button
-                  size="large"
-                  color="inherit"
-                  variant="contained"
-                  href="mailto:support@minimals.cc?subject=[Feedback] from Customer"
-                >
-                  Contact us
-                </Button>
-              </m.div>
-            </Box>
           </Grid>
         </Grid>
+
+        {/* Still Have Questions CTA */}
+        <Box
+          sx={{
+            mt: 10,
+            overflow: 'hidden',
+            position: 'relative',
+            bgcolor: 'common.black',
+            borderRadius: 3,
+            py: { xs: 8, md: 10 },
+          }}
+        >
+          {/* Rotating Background Texture */}
+          <Box
+            sx={{
+              top: 0,
+              right: 0,
+              bottom: 0,
+              my: 'auto',
+              width: 600,
+              height: 600,
+              opacity: 0.24,
+              position: 'absolute',
+              transform: 'translateX(30%)',
+            }}
+          >
+            <Box
+              component={m.img}
+              animate={{ rotate: 360 }}
+              transition={{ duration: 60, ease: 'linear', repeat: Infinity }}
+              alt="Texture"
+              loading="lazy"
+              src={`${CONFIG.assetsDir}/assets/background/texture-3.webp`}
+            />
+          </Box>
+
+          <Box sx={{ position: 'relative', mx: 'auto', maxWidth: 640, textAlign: 'center', color: 'common.white', px: 3 }}>
+            <m.div variants={variants}>
+              <Typography variant="h2" sx={{ mb: 2 }}>
+                Still Have Questions?
+              </Typography>
+            </m.div>
+
+            <m.div variants={variants}>
+              <Typography sx={{ mb: 5, opacity: 0.72, fontSize: '1.1rem' }}>
+                Please describe your case to receive the most accurate advice.
+                <br />
+                Our team is ready to help you find the perfect solution.
+              </Typography>
+            </m.div>
+
+            <m.div variants={variants}>
+              <Button
+                size="large"
+                variant="contained"
+                color="primary"
+                href={paths.marketing.contact}
+                endIcon={<Iconify icon="solar:arrow-right-outline" />}
+                sx={{
+                  px: 4,
+                  py: 1.5,
+                  fontSize: '1rem',
+                  background: (theme) =>
+                    `linear-gradient(135deg, ${theme.vars.palette.primary.main} 0%, ${theme.vars.palette.primary.dark} 100%)`,
+                }}
+              >
+                Contact Us Now
+              </Button>
+            </m.div>
+          </Box>
+        </Box>
 
         <TrianglePattern
           sx={{

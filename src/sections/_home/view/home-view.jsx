@@ -26,6 +26,7 @@ import { MarketingTeam } from 'src/sections/_marketing/marketing-team';
 import { HomeFlexibleComponents } from '../home-flexible-components';
 import { HomeContactCTA } from '../home-contact-cta';
 import { HomeTestimonials } from '../home-testimonials';
+import { HomeCertifications } from '../home-certifications';
 
 
 
@@ -68,14 +69,14 @@ const _members = [
         }}
       >
         <ElearningOurClients brands={_brands} />
+        <HomeCertifications />
         <MarketingLandingServices />
         <MarketingLandingProcess />
         <MarketingLandingCaseStudies caseStudies={_caseStudies} />
         <MarketingTeam members={_members} />
         <HomeTestimonials />
-        <HomePricing plans={_pricingHome} />
+        <HomePricing />
         <HomeFAQs />
-        <HomeContactCTA />
       </Box>
     </>
   );

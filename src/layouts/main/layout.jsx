@@ -27,57 +27,8 @@ import { MainSection } from '../core/main-section';
 import { MenuButton } from '../components/menu-button';
 import { LayoutSection } from '../core/layout-section';
 import { HeaderSection } from '../core/header-section';
-// import { SocialIconBtn } from '../components/si-button'; // entfernt
+import { LanguagePopover } from '../components/language-popover';
 import { PurchaseButton } from '../components/purchase-button';
-
-/* -------------------------------------------------
-   Language Switcher (DE/EN)
------------------------------------------------------------ */
-function LanguageSwitcher({ sx }) {
-  const [currentLang, setCurrentLang] = useState('de');
-
-  const IconifyComp =
-    typeof Iconify === 'function'
-      ? Iconify
-      : typeof Iconify?.default === 'function'
-      ? Iconify.default
-      : null;
-
-  const toggleLanguage = () => {
-    setCurrentLang((prev) => (prev === 'de' ? 'en' : 'de'));
-  };
-
-  const currentLangLabel = currentLang.toUpperCase();
-
-  return (
-    <Tooltip title={currentLang === 'de' ? 'Switch to English' : 'Zu Deutsch wechseln'} arrow>
-      <IconButton
-        onClick={toggleLanguage}
-        disableRipple
-        size="small"
-        sx={{
-          width: 32,
-          height: 32,
-          p: 0,
-          bgcolor: 'transparent',
-          transition: 'transform .15s ease',
-          '&:hover': { bgcolor: 'transparent', transform: 'translateY(-1px)' },
-          ...sx,
-        }}
-      >
-        {IconifyComp ? (
-          currentLang === 'de' ? (
-            <IconifyComp icon="twemoji:flag-germany" width={22} height={22} />
-          ) : (
-            <IconifyComp icon="twemoji:flag-united-kingdom" width={22} height={22} />
-          )
-        ) : (
-          <Box sx={{ fontSize: '0.75rem', fontWeight: 600 }}>{currentLangLabel}</Box>
-        )}
-      </IconButton>
-    </Tooltip>
-  );
-}
 
 /* -------------------------------------------------
    Social Media Button (LinkedIn)
@@ -298,8 +249,8 @@ export function MainLayout({ sx, cssVars, children, slotProps, layoutQuery = 'md
       ),
       rightArea: (
         <Box sx={{ gap: 1, display: 'flex', alignItems: 'center' }}>
-          {/* Language Switcher DE/EN */}
-          <LanguageSwitcher />
+          {/* Language Switcher DE/EN mit Flaggen */}
+          <LanguagePopover data={langs} />
 
           {/* LinkedIn Icon */}
           <SocialMediaButton />
