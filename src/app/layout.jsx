@@ -58,6 +58,18 @@ export default async function RootLayout({ children }) {
         </Script>
         {/* End Google Tag Manager */}
 
+        {/* Formless.ai Embed */}
+        <Script
+          src="https://embed.formless.ai/embed.js"
+          strategy="lazyOnload"
+          data-type="trigger"
+          data-trigger-bg-color="#171717"
+          data-trigger-icon-color="#ffffff"
+          data-trigger-icon-type="chat"
+          data-conversation-id="FvZ04jODz1il"
+        />
+        {/* End Formless.ai Embed */}
+
         <InitColorSchemeScript
           defaultMode={themeConfig.defaultMode}
           modeStorageKey={themeConfig.modeStorageKey}
