@@ -1,18 +1,9 @@
+'use client';
+
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
-
-// ----------------------------------------------------------------------
-
-export const metadata = {
-  title: 'Impressum – Gentle Webdesign',
-  description: 'Impressum und Anbieterkennzeichnung gemäß § 5 TMG',
-  robots: {
-    index: true,
-    follow: true,
-  },
-};
 
 // ----------------------------------------------------------------------
 

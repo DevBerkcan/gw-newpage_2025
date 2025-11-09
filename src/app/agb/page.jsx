@@ -1,19 +1,10 @@
+'use client';
+
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import Alert from '@mui/material/Alert';
-
-// ----------------------------------------------------------------------
-
-export const metadata = {
-  title: 'AGB – Allgemeine Geschäftsbedingungen | Gentle Webdesign',
-  description: 'Allgemeine Geschäftsbedingungen für Dienstleistungen von Gentle Webdesign',
-  robots: {
-    index: true,
-    follow: true,
-  },
-};
 
 // ----------------------------------------------------------------------
 
