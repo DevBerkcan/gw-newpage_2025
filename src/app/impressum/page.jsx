@@ -39,8 +39,15 @@ export default function ImpressumPage() {
           <Typography variant="body1" sx={{ mb: 1 }}>
             40227 Düsseldorf
           </Typography>
-          <Typography variant="body1" sx={{ mb: 1 }}>
+          <Typography variant="body1" sx={{ mb: 3 }}>
             Deutschland
+          </Typography>
+
+          <Typography variant="body1" sx={{ mb: 1 }}>
+            <strong>Umsatzsteuer-Identifikationsnummer:</strong> DE346263022
+          </Typography>
+          <Typography variant="body1" sx={{ mb: 1 }}>
+            <strong>Wirtschafts-Identifikationsnummer:</strong> 132/5007/3899
           </Typography>
         </Box>
 
@@ -53,10 +60,10 @@ export default function ImpressumPage() {
           </Typography>
 
           <Typography variant="body1" sx={{ mb: 1 }}>
-            <strong>Telefon:</strong> +49 175 4701832
+            <strong>Telefon:</strong> 01754701892
           </Typography>
           <Typography variant="body1" sx={{ mb: 1 }}>
-            <strong>E-Mail:</strong> info@gentle-webdesign.de
+            <strong>E-Mail:</strong> office@gentle-webdesign.com
           </Typography>
           <Typography variant="body1" sx={{ mb: 1 }}>
             <strong>Website:</strong> www.gentle-webdesign.de
@@ -65,34 +72,10 @@ export default function ImpressumPage() {
 
         <Divider sx={{ mb: 6 }} />
 
-        {/* Business Registration */}
-        <Box sx={{ mb: 6 }}>
-          <Typography variant="h5" sx={{ mb: 3, fontWeight: 700 }}>
-            Registereintrag
-          </Typography>
-
-          <Typography variant="body1" sx={{ mb: 1, color: 'text.secondary' }}>
-            <strong>Handelsregister:</strong> [IHR HANDELSREGISTER-NUMMER, falls vorhanden]
-          </Typography>
-          <Typography variant="body1" sx={{ mb: 1, color: 'text.secondary' }}>
-            <strong>Registergericht:</strong> [IHR REGISTERGERICHT, falls vorhanden]
-          </Typography>
-          <Typography variant="body1" sx={{ mb: 1, color: 'text.secondary' }}>
-            <strong>USt-IdNr.:</strong> [IHRE UMSATZSTEUER-ID, falls vorhanden]
-          </Typography>
-
-          <Typography variant="caption" sx={{ display: 'block', mt: 2, fontStyle: 'italic' }}>
-            * Falls Sie als Einzelunternehmer/Freiberufler tätig sind und keine Handelsregisternummer haben,
-            können Sie diesen Abschnitt entsprechend anpassen.
-          </Typography>
-        </Box>
-
-        <Divider sx={{ mb: 6 }} />
-
         {/* Responsible for Content */}
         <Box sx={{ mb: 6 }}>
           <Typography variant="h5" sx={{ mb: 3, fontWeight: 700 }}>
-            Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV
+            Verantwortlich für journalistisch-redaktionelle Inhalte
           </Typography>
 
           <Typography variant="body1" sx={{ mb: 1 }}>
@@ -101,8 +84,14 @@ export default function ImpressumPage() {
           <Typography variant="body1" sx={{ mb: 1 }}>
             Oberbilker Allee 319
           </Typography>
-          <Typography variant="body1">
+          <Typography variant="body1" sx={{ mb: 1 }}>
             40227 Düsseldorf
+          </Typography>
+          <Typography variant="body1" sx={{ mb: 3 }}>
+            Deutschland
+          </Typography>
+          <Typography variant="body1">
+            <strong>E-Mail:</strong> office@gentle-webdesign.com
           </Typography>
         </Box>
 
@@ -189,12 +178,8 @@ export default function ImpressumPage() {
 
         {/* Footer Note */}
         <Box sx={{ p: 3, bgcolor: 'background.neutral', borderRadius: 2 }}>
-          <Typography variant="caption" sx={{ color: 'text.secondary', display: 'block', mb: 1 }}>
-            <strong>Hinweis:</strong> Dieses Impressum ist ein Template. Bitte ersetzen Sie alle Platzhalter
-            in eckigen Klammern [BEISPIEL] durch Ihre tatsächlichen Daten.
-          </Typography>
-          <Typography variant="caption" sx={{ color: 'text.secondary' }}>
-            Bei Fragen zur korrekten Gestaltung Ihres Impressums konsultieren Sie bitte einen Rechtsanwalt.
+          <Typography variant="body2" sx={{ color: 'text.secondary', fontStyle: 'italic' }}>
+            Im Falle von Abweichungen zwischen der deutschen und der englischen Fassung hat die deutsche Fassung Vorrang.
           </Typography>
         </Box>
       </Box>
