@@ -33,13 +33,13 @@ export default function ImpressumPage() {
           <Typography variant="body1" sx={{ mb: 1 }}>
             Berk-Can Atesoglu
           </Typography>
-          <Typography variant="body1" sx={{ mb: 1, color: 'text.secondary' }}>
-            [IHRE STRASSE UND HAUSNUMMER]
+          <Typography variant="body1" sx={{ mb: 1 }}>
+            Oberbilker Allee 319
           </Typography>
-          <Typography variant="body1" sx={{ mb: 1, color: 'text.secondary' }}>
-            [IHRE PLZ UND STADT]
+          <Typography variant="body1" sx={{ mb: 1 }}>
+            40227 Düsseldorf
           </Typography>
-          <Typography variant="body1" sx={{ mb: 1, color: 'text.secondary' }}>
+          <Typography variant="body1" sx={{ mb: 1 }}>
             Deutschland
           </Typography>
         </Box>
@@ -98,11 +98,11 @@ export default function ImpressumPage() {
           <Typography variant="body1" sx={{ mb: 1 }}>
             Berk-Can Atesoglu
           </Typography>
-          <Typography variant="body1" sx={{ mb: 1, color: 'text.secondary' }}>
-            [IHRE STRASSE UND HAUSNUMMER]
+          <Typography variant="body1" sx={{ mb: 1 }}>
+            Oberbilker Allee 319
           </Typography>
-          <Typography variant="body1" sx={{ color: 'text.secondary' }}>
-            [IHRE PLZ UND STADT]
+          <Typography variant="body1">
+            40227 Düsseldorf
           </Typography>
         </Box>
 
