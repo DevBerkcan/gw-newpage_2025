@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.gentle-webdesign.de
+
+# Sitemaps
+Sitemap: https://www.gentle-webdesign.de/sitemap.xml
