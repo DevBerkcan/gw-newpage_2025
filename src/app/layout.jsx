@@ -8,11 +8,14 @@ import { CONFIG } from 'src/global-config';
 import { LocalizationProvider } from 'src/locales';
 import { themeConfig, ThemeProvider } from 'src/theme';
 import { themeOverrides } from 'src/theme/theme-overrides';
+import { fontVariables } from 'src/theme/fonts';
 
 import { ProgressBar } from 'src/components/progress-bar';
 import { MotionLazy } from 'src/components/animate/motion-lazy';
 import { CookieBanner } from 'src/components/cookie-banner';
 import { SettingsDrawer, defaultSettings, SettingsProvider } from 'src/components/settings';
+import { RegisterServiceWorker } from 'src/components/register-sw';
+import { SkipLink } from 'src/components/skip-link';
 
 // ----------------------------------------------------------------------
 
@@ -33,8 +36,21 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="de" suppressHydrationWarning className={fontVariables}>
+      <head>
+        {/* Preconnect for Performance */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
+        {/* PWA Manifest */}
+        <link rel="manifest" href="/manifest.webmanifest" />
+        <meta name="theme-color" content="#A97AFF" />
+      </head>
       <body>
+        {/* Skip Link for Accessibility */}
+        <SkipLink />
+
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
@@ -69,6 +85,9 @@ export default async function RootLayout({ children }) {
           data-conversation-id="FvZ04jODz1il"
         />
         {/* End Formless.ai Embed */}
+
+        {/* Service Worker Registration for PWA */}
+        <RegisterServiceWorker />
 
         <InitColorSchemeScript
           defaultMode={themeConfig.defaultMode}

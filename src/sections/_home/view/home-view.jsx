@@ -10,6 +10,9 @@ import { _pricingHome, _brands, _members, _caseStudies } from 'src/_mock';
 
 import { ScrollProgress, useScrollProgress } from 'src/components/animate/scroll-progress';
 import { LogoIntro } from 'src/components/logo-intro';
+import { OrganizationLD } from 'src/components/schema/organization-ld';
+import { WebSiteLD } from 'src/components/schema/website-ld';
+import { ServiceLD } from 'src/components/schema/service-ld';
 
 import { HomeHero } from '../home-hero';
 import { HomeFAQs } from '../home-faqs';
@@ -27,6 +30,11 @@ import { HomeFlexibleComponents } from '../home-flexible-components';
 import { HomeContactCTA } from '../home-contact-cta';
 import { HomeTestimonials } from '../home-testimonials';
 import { HomeCertifications } from '../home-certifications';
+import { HomeStats } from '../home-stats';
+import { HomeTechStack } from '../home-tech-stack';
+import { HomeProjectTimeline } from '../home-project-timeline';
+import { HomeBlogPreview } from '../home-blog-preview';
+import { HomeNewsletter } from '../home-newsletter';
 
 
 
@@ -50,6 +58,11 @@ const _members = [
 ];
   return (
     <>
+      {/* JSON-LD Structured Data for SEO */}
+      <OrganizationLD />
+      <WebSiteLD />
+      <ServiceLD />
+
       <LogoIntro />
 
       <ScrollProgress
@@ -60,24 +73,31 @@ const _members = [
 
       <BackToTopButton isVisible={isVisible} onClick={onBackToTop} />
 
-      <HomeHero />
-      <Box
-        sx={{
-          overflow: 'hidden',
-          position: 'relative',
-          bgcolor: 'background.default',
-        }}
-      >
+      <main id="main-content">
+        <HomeHero />
+        <Box
+          sx={{
+            overflow: 'hidden',
+            position: 'relative',
+            bgcolor: 'background.default',
+          }}
+        >
         <ElearningOurClients brands={_brands} />
+        <HomeStats />
         <HomeCertifications />
         <MarketingLandingServices />
+        <HomeTechStack />
+        <HomeProjectTimeline />
         <MarketingLandingProcess />
         <MarketingLandingCaseStudies caseStudies={_caseStudies} />
         <MarketingTeam members={_members} />
         <HomeTestimonials />
         <HomePricing />
         <HomeFAQs />
-      </Box>
+        <HomeBlogPreview />
+        </Box>
+        <HomeNewsletter />
+      </main>
     </>
   );
 }

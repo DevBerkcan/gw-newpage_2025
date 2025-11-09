@@ -1,16 +1,13 @@
 /** **************************************
-* Fonts: app
+* Fonts: Optimized with next/font (loaded in layout.jsx)
 *************************************** */
-@import '@fontsource-variable/public-sans';
-
-@import '@fontsource/barlow/400.css';
-@import '@fontsource/barlow/500.css';
-@import '@fontsource/barlow/600.css';
-@import '@fontsource/barlow/700.css';
-@import '@fontsource/barlow/800.css';
+/* Fonts are now loaded via next/font in src/theme/fonts.js
+ * This improves performance with automatic font optimization,
+ * self-hosting, and zero layout shift.
+ */
 
 /** **************************************
-* Fonts: options
+* Fonts: options (kept for theme switcher)
 *************************************** */
 @import '@fontsource-variable/dm-sans';
 @import '@fontsource-variable/inter';
@@ -60,4 +57,18 @@ input[type='number']::-webkit-outer-spin-button {
 input[type='number']::-webkit-inner-spin-button {
   margin: 0;
   -webkit-appearance: none;
+}
+
+/** **************************************
+* Accessibility: Reduced Motion
+*************************************** */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

@@ -10,8 +10,8 @@ export const themeConfig = {
    * Typography
    *************************************** */
   fontFamily: {
-    primary: 'Public Sans Variable',
-    secondary: 'Barlow',
+    primary: 'var(--font-public-sans), "Public Sans Variable", -apple-system, BlinkMacSystemFont, sans-serif',
+    secondary: 'var(--font-barlow), Barlow, Arial, sans-serif',
   },
   /** **************************************
    * Palette
